@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login and Registration</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+</head>
+<body>
+<div class="login-container">
+    <!-- Login Form -->
+    <form id="loginForm" th:action="@{/login}" method="post" class="form-visible">
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+        <h2>Login</h2>
+        <div class="form-field">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required th:value="${user.username}" />
+        </div>
+        <div class="form-field">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required th:value="${user.password}" />
+        </div>
+        <div class="form-field">
+            <button type="submit">Log In</button>
+            <a href="#" onclick="toggleForms()">Need to register?</a>
+        </div>
+    </form>
+    <!-- Registration Form -->
+    <form id="registrationForm" th:action="@{/register}" method="post" class="form-hidden">
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+        <h2>Register</h2>
+        <div class="form-field">
+            <label for="newUsername">Username</label>
+            <input type="text" id="newUsername" name="username" required th:value="${registerUser.username}" />
+        </div>
+        <div class="form-field">
+            <label for="newPassword">Password</label>
+            <input type="password" id="newPassword" name="password" required th:value="${registerUser.password}" />
+        </div>
+        <div class="form-field">
+            <button type="submit">Register</button>
+            <a href="#" onclick="toggleForms()">Already registered?</a>
+        </div>
+    </form>
+</div>
+<script>
+function toggleForms() {
+    let loginForm = document.getElementById('loginForm');
+    let registrationForm = document.getElementById('registrationForm');
+    if (loginForm.classList.contains('form-visible')) {
+        loginForm.classList.remove('form-visible');
+        loginForm.classList.add('form-hidden');
+        registrationForm.classList.remove('form-hidden');
+        registrationForm.classList.add('form-visible');
+    } else {
+        registrationForm.classList.remove('form-visible');
+        registrationForm.classList.add('form-hidden');
+        loginForm.classList.add('form-visible');
+        loginForm.classList.remove('form-hidden');
+    }
+}
+</script>
+</body>
+</html>
+

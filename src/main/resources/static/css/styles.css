@@ -1,0 +1,140 @@
+/* Base styles for the body, headers, and main layout */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-header, header {
+    text-align: center;
+    margin: 2em 0;
+}
+
+h1 {
+    color: #333;
+}
+
+/* Styling for form and movie containers */
+.form-container, .movie-container, .login-container {
+    background-color: #ffffff;
+    padding: 2em;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 800px; /* Wider max-width for movie cards and login form */
+    margin-bottom: 1em;
+}
+
+/* Styling for movie cards */
+.movie-card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.movie-card:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.movie-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
+.movie-info {
+    margin-bottom: 0.25em;
+    color: #666;
+}
+
+/* Button and link styling */
+.action-buttons a, .add-movie-btn, .submit-btn {
+    padding: 10px 15px;
+    margin-right: 10px;
+    border-radius: 4px;
+    color: #fff;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.edit-btn {
+    background-color: #3498db;
+}
+
+.delete-btn {
+    background-color: #e74c3c;
+}
+
+.add-movie-btn, .submit-btn {
+    background-color: #2ecc71;
+}
+
+/* Enhancing the hover effect */
+.edit-btn:hover {
+    background-color: #2980b9;
+}
+
+.delete-btn:hover {
+    background-color: #c0392b;
+}
+
+.add-movie-btn:hover, .submit-btn:hover {
+    background-color: #27ae60;
+}
+
+/* Grouping inputs for better visual */
+.input-group {
+    margin-bottom: 1em;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: .5em;
+    color: #666;
+}
+
+.input-group input, .input-group textarea {
+    width: 100%;
+    padding: 0.75em;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box; /* Ensures padding doesn't affect overall width */
+}
+
+/* Styling for form visibility */
+.form-visible {
+    display: block; /* Show the form */
+}
+
+.form-hidden {
+    display: none; /* Hide the form */
+}
+
+/* Media query for responsiveness */
+@media (max-width: 600px) {
+    .form-container, .movie-container, .login-container {
+        padding: 1em;
+    }
+
+    .input-group input, .input-group textarea,
+    .action-buttons a, .add-movie-btn, .submit-btn {
+        padding: 0.5em;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    .movie-card {
+        margin-bottom: 1em;
+    }
+}

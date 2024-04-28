@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Movie List</title>
+    <link href="/css/styles.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Movies Archive</h1>
+    </header>
+    <div class="movie-container">
+        <div th:each="movie : ${movies}" class="movie-card">
+            <h2 th:text="${movie.title}">Movie Title</h2>
+            <p th:text="'Director: ' + ${movie.director}">Director Name</p>
+            <p th:text="'Release Year: ' + ${movie.releaseYear}">Release Year</p>
+            <p th:text="${movie.description}">Description</p>
+            <div class="action-buttons">
+                <a th:href="@{/movies/edit/{id}(id=${movie.id})}" th:text="'Edit'" class="edit-btn">Edit</a>
+                <a th:href="@{/movies/delete/{id}(id=${movie.id})}" th:text="'Delete'" class="delete-btn">Delete</a>
+            </div>
+        </div>
+    </div>
+    <a href="/movies/new" class="add-movie-btn">Add New Movie</a>
+    <script src="/js/api-handler.js"></script>
+</body>
+</html>
